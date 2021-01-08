@@ -18,7 +18,7 @@ class LoadingBloc extends Bloc<LoadingEvent, LoadingState> {
     if (event is AppLoaded) {
       yield LoadingInProgress();
       try {
-        await Future.delayed(Duration(milliseconds: 1000));
+        await Future.delayed(Duration(milliseconds: 10));
         final category = await categoryRepository.getCategories();
         yield LoadingSucess(category: category);
       } catch (e) {

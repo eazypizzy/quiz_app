@@ -19,10 +19,8 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
     if (event is QuizButtonClicked) {
       yield FetchingQuestionsInProgress();
       try {
-        await Future.delayed(Duration(milliseconds: 500));
+        await Future.delayed(Duration(milliseconds: 100));
         final questions = await repo.getQuestions(event.categoryId);
-        print(questions.results[0].correctAnswer);
-        print(questions.results[0].allAnswers);
         yield FetchingQuestionsSuccess(trivia: questions);
       } catch (e) {
         print(e);

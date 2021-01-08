@@ -17,7 +17,8 @@ class SplashScreen extends StatelessWidget {
           if (state is LoadingSucess) {
             final category = state.category;
             Future.delayed(Duration.zero, () {
-              Navigator.of(context).push(MaterialPageRoute<CategoryScreen>(
+              Navigator.of(context)
+                  .pushReplacement(MaterialPageRoute<CategoryScreen>(
                 builder: (context) {
                   return RepositoryProvider<TriviaRepository>(
                     create: (context) {
